@@ -1,0 +1,59 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <div style="height: 100%">
+        <slot name="headerSlot">
+            <div class="slds-page-header">
+                <div class="slds-page-header__row slds-col">
+                    <div class="slds-page-header__col-actions">
+                        <div class="slds-page-header__controls">
+                            <div class="slds-page-header__control slds-grid">
+                                <lightning-button if:false={orderActive} variant="brand" label="Add product to order" onclick={handleAddProductsToOrder} class="slds-var-m-left_x-small"></lightning-button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slot>
+        <div class="slds-scrollable_x scrollbox">
+            <lightning-datatable
+                key-field="Id"
+                onrowselection={getSelectedRecordsFromTable}
+                selected-rows={selection}
+                data={displayedTableRecords}
+                columns={columns}
+                >
+            </lightning-datatable>
+        </div>
+        <slot name="paginationSlot">
+            <div style="display: flex">
+                <div style="width: 50%">
+                    <div style="display: flex; flex-direction: row; align-items:center; justify-content:space-between">
+                        <lightning-combobox name="rowsperpage" value={rowsPerPageSelected} options={rowsPerPagePicklistData} onchange={handleRowsPerPageChange}></lightning-combobox>
+                    </div>
+                </div>
+                <div style="width: 50%">
+                    <div class="slds-grid slds-wrap slds-var-p-vertical_medium slds-grid_align-end">
+                        <div class="slds-col slds-var-p-right_small">
+                            <lightning-button icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
+                        </div>
+                        <div class="slds-col slds-var-p-top_x-small slds-var-p-left_x-small">
+                            {state.page}&nbsp;/&nbsp;{state.totalNumberOfPages}
+                        </div>
+                        <div class="slds-col slds-var-p-left_small">
+                            <lightning-button icon-name="utility:chevronright" icon-position="right" onclick={nextHandler}></lightning-button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </slot>
+    </div>
+
+    <template if:true={state.isLoading}>
+        <div class="slds-spinner_container">
+            <div class="slds-spinner--brand slds-spinner slds-spinner--large" role="alert">
+                <div class="slds-spinner__dot-a"></div>
+                <div class="slds-spinner__dot-b"></div>
+            </div>
+        </div>
+    </template>
+</template>
