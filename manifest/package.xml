@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>OrderSelector</members> <!--100%-->
+        <members>OrderSelector_Test</members> <!--Test-->
+        <members>Result</members> <!--100%-->
+        <members>Result_Test</members> <!--Test-->
+        <members>OrderManagementController</members> <!--100%-->
+        <members>OrderManagementController_Test</members> <!--Test-->
+        <members>OrderManagementAPIArgs</members> <!--100%-->
+        <members>OrderManagementAPIArgs_Test</members> <!--Test-->
+        <members>OrderManagementServiceAPI</members> <!--97%-->
+        <members>OrderManagementServiceAPI_Test</members> <!--Test-->
+        <members>PriceBookEntrySelector</members> <!--100%-->
+        <members>PriceBookEntrySelector_Test</members> <!--Test-->
+        <members>LWCImplementationSelector</members> <!--100%-->
+        <members>LWCImplementationSelector_Test</members> <!--Test-->
+        <members>TestDataFactory</members> <!--Test-->
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>productListLWC</members>
+        <members>orderProductListLWC</members>
+        <members>pubsub</members>
+        <name>LightningComponentBundle</name>
+    </types>
+    <types>
+        <members>Custom_Order_Record_Page</members>
+        <name>FlexiPage</name>
+    </types>
+    <version>52.0</version>
+</Package>
